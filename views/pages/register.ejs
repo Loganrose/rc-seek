@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+    <script src="/js/socket.io.js"></script>
+
+    <script src="/js/register.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Register For Classes</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/profile" class="btn btn-default btn-sm">Profile</a>
+    </div>
+    <div class="row">
+        <% user.children.forEach(child => { %>
+            <div class="col-sm-6">
+                <div class="well childR">
+                    <h3 class="name"><span class="fa fa-user"></span> <%= child.name %></h3>
+                        <p>
+                            <strong>Age</strong>: <%= child.age%><br>
+                            <strong>Grade</strong>: <%= child.grade %>
+                            <div class="form-group">
+                                <label for="cselect">Select Class:</label>
+                                <select class="form-control" id="cselect">
+                                    <option id="na">none</option>
+                                    <option id="1">1</option>
+                                    <option id="2">2</option>
+                                    <option id="3">3</option>
+                                    <option id="4">4</option>
+                                </select>
+                            </div>
+                        </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+</body>
+</html>

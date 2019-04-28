@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <% include ../partials/head.ejs %>
+</head>
+<body>
+<div class="container">
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> <%= user.local.name %></h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/register" class="btn btn-default btn-sm">Register</a>
+    </div>
+    
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <div class="row">
+        <% user.children.forEach(child => { %>
+            <div class="col-sm-6">
+                <div class="well child">
+                    <h3><span class="fa fa-user"></span> <%= child.name %></h3>
+
+                        <p>
+                            <strong>Age</strong>: <%= child.age%><br>
+                            <strong>Grade</strong>: <%= child.grade %>
+                        </p>
+
+                </div>
+            </div>
+        <% }); %>
+        <% if (user.children.length < 2) { %>
+            <div class="col-sm-6">
+                <div class="well child">
+                    <h3 style="text-align:center"><a class="addc" href="/child/create"><i class="far fa-plus-square fa-4x"></i></a></h3>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+</div>
+</body>
+</html>

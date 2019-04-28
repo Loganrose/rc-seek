@@ -1,0 +1,13 @@
+body { padding-top:80px; word-wrap:break-word;}
+.child {
+    max-height: 18vh;
+    height: 20vh;
+}
+.addc{
+    text-decoration-color: none;
+}
+.childR {
+    max-height: 50%;
+    height: 05%;
+    text-align: center;
+}
